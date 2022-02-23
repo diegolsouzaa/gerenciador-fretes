@@ -25,8 +25,8 @@ public class FreteServices {
         Frete frete = new Frete();
 
         frete.setLocalDeEntrega(freteDTO.getLocalDeEntrega());
-        frete.setDataColeta(freteDTO.getDataColeta());
-        frete.setDataEntrega(freteDTO.getDataColeta());
+        frete.setQuantidade(freteDTO.getQuantidade());
+        frete.setTransportadora(freteDTO.getTranspordora());
         frete.setProduto(freteDTO.getProduto());
         return freteRepository.save(frete);
     }

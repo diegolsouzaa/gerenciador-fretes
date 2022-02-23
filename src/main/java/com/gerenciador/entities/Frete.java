@@ -12,7 +12,7 @@ import java.util.Date;
 @Entity
 @Component
 @Table(name = "frete")
-public class Frete implements Serializable {
+public class Frete implements Serializable{
 
     private static final long serialVersionUID = -6888542263201514002L;
 
@@ -23,13 +23,12 @@ public class Frete implements Serializable {
     @Column(name = "local_entrega", nullable = false)
     private String localDeEntrega;
 
-    @JsonSerialize(using = DateSerializer.class)
-    @Column(name = "data_coleta", nullable = false)
-    private Date dataColeta;
 
-    @JsonSerialize(using = DateSerializer.class)
-    @Column(name = "data_entrega", nullable = true)
-    private Date dataEntrega;
+    @Column(name = "quantidade", nullable = false)
+    private Integer quantidade;
+
+    @Column(name = "transportadora", nullable = true)
+    private String transportadora;
 
     @Column(name = "produto", nullable = true)
     private String produto;
@@ -38,30 +37,30 @@ public class Frete implements Serializable {
 
     }
 
-    public Frete(Long id, String localDeEntrega, Date dataColeta, Date dataEntrega, String produto) {
+    public Frete(Long id, String localDeEntrega, Integer quantidade, String transportadora, String produto) {
         this.id = id;
         this.localDeEntrega = localDeEntrega;
-        this.dataColeta = dataColeta;
-        this.dataEntrega = dataEntrega;
+        this.quantidade = quantidade;
+        this.transportadora = transportadora;
         this.produto = produto;
     }
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    public Date getDataColeta() {
-        return dataColeta;
+
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setDataColeta(Date dataColeta) {
-        this.dataColeta = dataColeta;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    public Date getDataEntrega() {
-        return dataEntrega;
+
+    public String getTransportadora() {
+        return transportadora;
     }
 
-    public void setDataEntrega(Date dataEntrega) {
-        this.dataEntrega = dataEntrega;
+    public void setTransportadora(String dataEntrega) {
+        this.transportadora = transportadora;
     }
 
     public String getProduto() {
@@ -90,8 +89,8 @@ public class Frete implements Serializable {
 
     @Override
     public String toString() {
-        return "Viagem [id=" + id + ", localDeEntrega=" + localDeEntrega + ", dataColeta=" + dataColeta
-                + ", dataEntrega=" + dataEntrega + ", produto=" + produto + "]";
+        return "Viagem [id=" + id + ", localDeEntrega=" + localDeEntrega + ", quantidade =" + quantidade
+                + ", transportadora=" + transportadora + ", produto=" + produto + "]";
     }
 
 

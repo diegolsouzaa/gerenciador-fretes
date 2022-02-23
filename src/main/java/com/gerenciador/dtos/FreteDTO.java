@@ -3,11 +3,12 @@ package com.gerenciador.dtos;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
-public class FreteDTO implements Serializable {
+public class FreteDTO implements Serializable{
 
     private static final long serialVersionUID = -8105241933692707649L;
 
@@ -15,11 +16,9 @@ public class FreteDTO implements Serializable {
 
     private String localDeEntrega;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date dataColeta;
+    private Integer quantidade;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date dataEntrega;
+    private String transportadora;
 
     private String produto;
 
@@ -46,21 +45,19 @@ public class FreteDTO implements Serializable {
 
     }
 
-    @NotNull(message = "Data de Coleta é uma informação obrigatória")
-    public Date getDataColeta(){
-        return dataColeta;
+    @NotNull(message = "quantidade é uma informação obrigatória")
+    public Integer getQuantidade(){
+        return quantidade;
     }
 
-    public void setDataColeta (Date dataColeta){
-        this.dataColeta = dataColeta;
+    public void setQuantidade (Integer quantidade){
+        this.quantidade = quantidade;
     }
 
-    public Date getDataEntrega(){
-        return dataEntrega;
-    }
+    public String getTranspordora(){ return transportadora; }
 
-    public void setDataEntrega(Date dataEntrega){
-        this.dataEntrega = dataEntrega;
+    public void setTransportadora(String transportadora){
+        this.transportadora = transportadora;
     }
 
     public String getProduto(){
@@ -73,8 +70,8 @@ public class FreteDTO implements Serializable {
 
     @Override
     public String toString(){
-        return "FreteDTO [id="+ id + ", localDeEntrega = " + localDeEntrega + ", dataColeta = " + dataColeta +
-                ", dataEntrega = " + dataEntrega + " produto = " + produto + "]";
+        return "FreteDTO [id="+ id + ", localDeEntrega = " + localDeEntrega + ", quantidade = " + quantidade +
+                ", transportadora = " + transportadora + " produto = " + produto + "]";
 
     }
 
