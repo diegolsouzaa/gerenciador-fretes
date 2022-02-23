@@ -35,7 +35,7 @@ public class FreteDTO implements Serializable{
     }
 
     @NotNull(message = "Local de Entrega é uma informação obrigatória")
-    @Length(min = 3, max = 40, message = "Local de Destino deve estar entre 3 e 40 caracteres")
+    @Length(min = 3, max = 40, message = "Local de Entrega deve estar entre 3 e 40 caracteres")
     public String getLocalDeEntrega(){
         return localDeEntrega;
     }
