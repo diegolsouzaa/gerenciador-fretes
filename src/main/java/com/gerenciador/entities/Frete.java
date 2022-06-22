@@ -59,7 +59,7 @@ public class Frete implements Serializable{
         return transportadora;
     }
 
-    public void setTransportadora(String dataEntrega) {
+    public void setTransportadora(String transportadora) {
         this.transportadora = transportadora;
     }
 

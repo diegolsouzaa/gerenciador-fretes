@@ -54,7 +54,7 @@ public class FreteDTO implements Serializable{
         this.quantidade = quantidade;
     }
 
-    public String getTranspordora(){ return transportadora; }
+    public String getTransportadora(){ return transportadora; }
 
     public void setTransportadora(String transportadora){
         this.transportadora = transportadora;
